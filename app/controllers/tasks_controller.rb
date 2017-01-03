@@ -1,7 +1,15 @@
 class TasksController < ApplicationController
 
+  def index
+    @tasks = Task.all
+  end
+
   def new
     @task = Task.new
+  end
+
+  def edit
+    @task = Task.find(params[:id])
   end
 
   def create
@@ -11,6 +19,16 @@ class TasksController < ApplicationController
       redirect_to task_path(@task)
     else
       render 'new'
+    end
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update(tasks_params)
+      flash[:notice] = "The task was updated."
+      redirect_to task_path(@task)
+    else
+      render 'edit'
     end
   end
 
