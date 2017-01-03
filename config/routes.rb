@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :tasks do
     member do
-      put :update_attributes
+      put :update_state
     end
   end
 

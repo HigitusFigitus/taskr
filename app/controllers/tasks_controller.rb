@@ -44,7 +44,7 @@ class TasksController < ApplicationController
   end
 
   def update_state
-    task.update_attributes(state: params[:state])
+    @task.update_attributes(state: params[:state])
     flash[:notice] = "Task successfully updated."
     redirect_to tasks_path
   end
