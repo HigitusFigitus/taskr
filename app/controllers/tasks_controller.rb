@@ -47,6 +47,6 @@ private
   end
 
   def tasks_params
-    params.require(:task).permit(:content)
+    params.require(:task).permit(:content, :state)
   end
 end
